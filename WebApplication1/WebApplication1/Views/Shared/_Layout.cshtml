@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – приложение ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="a">
+        <b><i>Все о собаках</i></b>
+    </div>
+
+    <div class="c">
+     <p></p>  @Html.ActionLink("Фото", "Image","Home")</p>
+     <p></p>   @Html.ActionLink("Определение", "Index", "Home")</p>
+     <p></p>   @Html.ActionLink("Слушать музыку", "About", "Home")</p>
+        
+
+    </div>
+   
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <style>
+        .a {
+            float: left;
+            background: lightgreen;
+            width: 93%;
+            height: 100px;
+            padding: 20px;
+            font-size: 60px;
+            text-align: center;
+        }
+
+        
+
+        .c {
+            float: left;
+            height: 350px;
+            padding: 15px;
+            font-size: 20px;
+            text-align: left;
+            background: lightyellow;
+        }
+    </style>
+   
+
+</body>
+</html>
