@@ -1,0 +1,16 @@
+﻿@model WebApplication1.Models.Audio
+@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+
+
+<div class="c">
+    <audio controls>
+
+        <source src="~/Content/music/музыка.mp3">
+    </audio>
+    <p> Дата создания  @Model.Songtime.ToShortDateString()</p>
+    <p> Песня существует @Model.Time.Days дней</p>
+    
+</div>

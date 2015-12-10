@@ -1,0 +1,31 @@
+﻿@model List<WebApplication1.Models.Film>
+
+@{
+    ViewBag.Title = "Films";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Films</h2>
+
+@foreach (var film in Model)
+{
+    <div>
+        <p>
+            Название фильма
+            @film.Name
+            
+        </p>
+
+
+        <p>
+            Жанр фильма
+            @film.genres
+        </p>
+
+        <p>
+            Дата создания
+            @film.Created.ToString("yyyy")
+        </p>
+
+    </div>
+}

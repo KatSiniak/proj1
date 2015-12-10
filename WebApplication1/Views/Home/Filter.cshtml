@@ -1,0 +1,28 @@
+﻿@using WebApplication1.Models
+@model WebApplication1.Models.Filter
+@{
+    ViewBag.Title = "Filter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Filtr</h2>
+
+@{
+
+    var allGenres = Film.AllGenres;
+    var sli = allGenres.Select(x => new SelectListItem
+    {
+        Value = x.ToString(),
+        Text = x.ToString()
+    }).ToList();
+}
+
+
+@using (Html.BeginForm("Films","Home"))
+{
+    <div>
+        <p>Выберите жанр @Html.EnumDropDownListFor(x => x.genres, sli) </p>
+        <p> Выберите год  @Html.TextBoxFor(y => y.created)</p>
+        <input type="submit" value="Показать" />
+    </div>
+}
