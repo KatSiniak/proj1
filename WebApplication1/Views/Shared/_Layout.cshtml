@@ -13,89 +13,66 @@
 
 </head>
 <body>
-    <div>
-        <p>
-           
-            @{
-                var re = "";
-                if (Request.Cookies["Name"] != null && Request.Cookies["Age"] != null)
-                {
-                    re = Request.Cookies["Name"].Value + "  " + Request.Cookies["Age"].Value;
+    <div class="container">
+        <div class="row">
+            <p>
+
+                @{
+                    var re = "";
+                    if (Request.Cookies["Name"] != null && Request.Cookies["Age"] != null)
+                    {
+                        re = Request.Cookies["Name"].Value + "  " + Request.Cookies["Age"].Value;
+                    }
+                    else
+                    {
+                        re = "гость";
+                    }
                 }
-                else
-                {
-                    re = "гость";
-                }
-            }
 
-            Привет @re рад знакомству
-        </p>
-    </div>
-    <div class="a">
-           <b><i>Все о собаках</i></b>
-
-
-
-
-        <div id=carousel>
-            <figure id=spinner>
-                <img src="@Url.Content("~/Content/image/1.jpg")" alt="">
-                <img src="@Url.Content("~/Content/image/2.jpg")" alt="">
-                <img src="@Url.Content("~/Content/image/3.jpg")" alt="">
-                <img src="@Url.Content("~/Content/image/4.jpg")" alt="">
-                <img src="@Url.Content("~/Content/image/5.jpg")" alt="">
-                <img src="@Url.Content("~/Content/image/6.jpg")" alt="">
-                <img src="@Url.Content("~/Content/image/7.jpg")" alt="">
-                <img src="@Url.Content("~/Content/image/8.jpg")" alt="">
-
-            </figure>
+                Привет @re рад знакомству
+            </p>
+            <div class="page-header">
+                <h1>КиноПоиск</h1>
+            </div>
         </div>
-        <span style=float:left class=ss-icon onclick="galleryspin('-')">&lt;</span>
-        <span style=float:right class=ss-icon onclick="galleryspin('')">&gt;</span>
+     </div>
+        <div class="row">
+            <div id=carousel>
+                <figure id=spinner>
+                    <img src="@Url.Content("~/Content/image/1.jpg")" width="518" height="298" alt="">
+                    <img src="@Url.Content("~/Content/image/2.jpg")" width="518" height="298" alt="">
+                    <img src="@Url.Content("~/Content/image/3.jpg")" width="518" height="298" alt="">
+                    <img src="@Url.Content("~/Content/image/4.jpg")" width="518" height="298" alt="">
+                    <img src="@Url.Content("~/Content/image/5.jpg")" width="518" height="298" alt="">
+                    <img src="@Url.Content("~/Content/image/6.jpg")" width="518" height="298" alt="">
+                    <img src="@Url.Content("~/Content/image/7.jpg")" width="518" height="298" alt="">
+                    <img src="@Url.Content("~/Content/image/8.jpg")" width="518" height="298" alt="">
+
+                </figure>
+            </div>
+            <span style=float:left class=ss-icon onclick="galleryspin('-')">&lt;</span>
+            <span style=float:right class=ss-icon onclick="galleryspin('')">&gt;</span>
 
 
+        </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation">  @Html.ActionLink("Фото", "Image", "Home")</li>
+                    <li role="presentation">   @Html.ActionLink("Все фильмы", "Films", "Home")</li>
+                    <li role="presentation">  @Html.ActionLink("Саундтреки", "About", "Home")</li>
+                    <li role="presentation">  @Html.ActionLink("Комментарий", "Comment", "Home")</li>
+                    <li role="presentation">  @Html.ActionLink("Фильтр", "Filter", "Home")</li>
+                    <li role="presentation">  @Html.ActionLink("Добаивть фильм", "AddFilm", "Home")</li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
     </div>
-
-
-
-
-
-    <div class="c">
-     <p>  @Html.ActionLink("Фото", "Image","Home")</p>
-     <p>   @Html.ActionLink("Определение", "Index", "Home")</p>
-     <p>  @Html.ActionLink("Слушать музыку", "About", "Home")</p>
-     <p>  @Html.ActionLink("Комментарий", "Comment", "Home")</p>
-        <p>  @Html.ActionLink("Фильтр", "Filter", "Home")</p>
-    </div>
-
-
-    <div class="container body-content">
-        @RenderBody()
-    </div>
-
-    <style>
-        .a {
-            float: left;
-            background: lightgreen;
-            width: 93%;
-            height: 600px;
-            padding: 20px;
-            font-size: 60px;
-            text-align: center;
-        }
-
-        
-
-        .c {
-            float: left;
-            height: 350px;
-            padding: 15px;
-            font-size: 20px;
-            text-align: left;
-            background: lightyellow;
-        }
-    </style>
-   
 
 </body>
 </html>

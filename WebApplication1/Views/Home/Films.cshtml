@@ -10,22 +10,17 @@
 @foreach (var film in Model)
 {
     <div>
+        <h3>@film.Name</h3>
+        <div>
+            <b>Дата создания:</b>
+            <span> @film.Created.ToString("yyyy") </span>
+            <b>Жанр фильма:</b>
+            <span> @film.genres </span>
+        </div>
         <p>
-            Название фильма
-            @film.Name
-            
+            ОПисание
         </p>
-
-
-        <p>
-            Жанр фильма
-            @film.genres
-        </p>
-
-        <p>
-            Дата создания
-            @film.Created.ToString("yyyy")
-        </p>
-
+        <a class="btn btn-default" href="@Url.Action("Remove", new { IDdel = film.Id })" role="button">Удалить</a>
+        <hr />
     </div>
 }
