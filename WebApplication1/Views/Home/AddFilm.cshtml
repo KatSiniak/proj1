@@ -2,13 +2,14 @@
 @using WebApplication1.Helper
 
 @{
-    ViewBag.Title = "Добавлние фыильма";
+    ViewBag.Title = "Добавлние фильма";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Добавлние фыильма</h2>
+<h2>Добавлние фильма</h2>
 
-@using (Html.BeginForm("AddFilm", "Home"))
+@using (Html.BeginForm("AddFilm", "Home", FormMethod.Post,
+      new { enctype = "multipart/form-data" }))
 {
     var sli = Help.AllGenres.Select(x => new SelectListItem
     {
@@ -24,8 +25,13 @@
         </div>
 
         <div class="form-group">
+            @Html.TextBoxFor(x => x.Opis, new { @class = "form-control", @placeholder = "Описание" })
+        </div>
+
+        <div class="form-group">
             @Html.TextBoxFor(x => x.Created, new { @class = "form-control", @placeholder = "Введите год" })
         </div>
+        <input type="file" name="отправить"/>
         <button type="submit" class="btn btn-default">Сохранить</button>
 
 }

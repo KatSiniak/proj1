@@ -12,15 +12,18 @@
     <div>
         <h3>@film.Name</h3>
         <div>
-            <b>Дата создания:</b>
-            <span> @film.Created.ToString("yyyy") </span>
+            <p>   <img height="250" src="~/Content/image/@film.Nameimage" /> </p><br />
+            <b>Дата создания:</b> 
+            <span> @film.Created.ToString("yyyy") </span><br />
             <b>Жанр фильма:</b>
-            <span> @film.genres </span>
+            <span> @film.genres </span><br />
+            <b> Описание: </b>
+             @film.Opis
+
         </div>
-        <p>
-            ОПисание
-        </p>
+        
         <a class="btn btn-default" href="@Url.Action("Remove", new { IDdel = film.Id })" role="button">Удалить</a>
         <hr />
+   
     </div>
 }

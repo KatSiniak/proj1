@@ -14,6 +14,8 @@ namespace WebApplication1.Models
 
         public DateTime Created { get; set; }
 
+        public string Nameimage { get; set; }
+        public string Opis { get; set; }
         public static List<Genres> AllGenres {
             get {
                 var a = new List<Genres>();

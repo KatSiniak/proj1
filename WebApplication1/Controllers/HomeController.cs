@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -102,6 +103,8 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+
+
         public ActionResult Films()
         {
              return View(Addedfilm.AllFilms());
@@ -156,6 +159,20 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult AddFilm(Film film)
         {
+
+            if (Request.Files.Count > 0)
+            {
+                var file = Request.Files[0];
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    film.Nameimage = fileName;
+                    var path = Path.Combine(Server.MapPath("~/Content/image/"), fileName);
+                    file.SaveAs(path);
+                }
+            }
+            
             Addedfilm.Saver(film);
             return RedirectToAction("Films");
 
