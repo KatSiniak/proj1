@@ -16,5 +16,6 @@ namespace WebApplication1.Models
                 return DateTime.Now - Songtime;
             }
         }
+      
     }
 }
